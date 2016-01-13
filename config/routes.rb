@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  get 'users/new'
+ resources :users do
+    member do
+      get :confirm_email
+    end
+  end
+
 
 
   match '/signup',  to: 'users#new',            via: 'get'
